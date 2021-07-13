@@ -11,7 +11,7 @@ class SidebarItemComponent extends React.component(){
         super();
     }
     render(){
-        return (<div> SibarItems </div>);
+        return (<div> SidebarItems </div>);
     }
 }
 export default withStyles(styles)(SidebarItemComponent);
