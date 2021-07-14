@@ -4,6 +4,9 @@ import React from 'react';
 import "firebase/firestore";
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import SidebarComponent from './sidebar/sidebar';
+import EditorComponent from './editor/editor';
+import SidebarItemComponent from './sidebaritems/sidebaritems';
 
 //const firebase = require('firebase');
 require("firebase/firestore");
@@ -21,7 +24,17 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>HMMMMM</div>
+      <div classname="app__container">
+        <SidebarComponent>
+
+        </SidebarComponent>
+        <EditorComponent>
+    
+        </EditorComponent>
+        <SidebarComponent>
+
+        </SidebarComponent>
+      </div>
     );
   }
 

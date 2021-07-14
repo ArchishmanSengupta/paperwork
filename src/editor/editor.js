@@ -10,7 +10,9 @@ class EditorComponent extends React.Component {
         super();
     }
     render(){
-        return (<div>Editor Test</div>);
+        return (<div>
+            Editor Test
+            </div>);
     }
 }
 export default withStyles(styles)(EditorComponent);     // takes agrs stles, Styles is a function in which we will be using in the styles.js file
