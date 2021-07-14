@@ -31,9 +31,9 @@ class App extends React.Component {
         <EditorComponent>
     
         </EditorComponent>
-        <SidebarComponent>
+        {/* <SidebarComponent>
 
-        </SidebarComponent>
+        </SidebarComponent> */}
       </div>
     );
   }

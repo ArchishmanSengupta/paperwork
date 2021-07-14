@@ -5,7 +5,8 @@ html,body{
   margin: 0;
   padding: 0;
   overflow:hidden;
-  color: red;
+  color: rgb(0, 0, 0);
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #root{
   height:100%;

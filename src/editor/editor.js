@@ -8,11 +8,32 @@ import styles from './styles';
 class EditorComponent extends React.Component {
     constructor() {
         super();
+        this.state={
+            text: '',
+            title:'',
+            id:''
+        };
     }
     render(){
-        return (<div>
-            Editor Test
-            </div>);
+        const {classes} =this.props;
+        return ( 
+
+            //as we update the state it will update the ReactQuill
+
+            <div classname={classes.editorContainer}>
+            <ReactQuill
+            value={this.state.text}
+            onChange={this.updateBody}>          
+            </ReactQuill>
+            </div>
+            );
     }
+
+    // 1. Function that updates the body
+    updateBody=async(val) => {
+        await this.setState({text:val});
+        this.update();
+    };
+    
 }
-export default withStyles(styles)(EditorComponent);     // takes agrs stles, Styles is a function in which we will be using in the styles.js file
+export default withStyles(styles)(EditorComponent);     // takes agrs styles, Styles is a function in which we will be using in the styles.js file
