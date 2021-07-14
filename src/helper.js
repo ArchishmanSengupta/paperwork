@@ -4,6 +4,8 @@ THIS DEBOUNCE FUNCTION UPDATES THE DATABASE LIVE, WITHOUT SENDING MULTIPLE REQUE
 FOR EVERY LETTER THAT IS ADDED TO THE TEXT EDITOR.
 
 DATABASE HTTP CALLS every 2-3 secs after typing
+
+more on debounce() ? visit -> https://www.educative.io/edpresso/how-to-use-the-debounce-function-in-javascript
 */
 
     export default function debounce(a,b,c){

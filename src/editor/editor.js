@@ -30,10 +30,20 @@ class EditorComponent extends React.Component {
     }
 
     // 1. Function that updates the body
+
     updateBody=async(val) => {
         await this.setState({text:val});
         this.update();
     };
-    
+
+    // 2. calling the helper function - helper.js
+
+    update=debounce(()=>{
+        console.log('auto saving...');
+
+        // TODO: 
+
+    },2000);
+
 }
 export default withStyles(styles)(EditorComponent);     // takes agrs styles, Styles is a function in which we will be using in the styles.js file
