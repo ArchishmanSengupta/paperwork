@@ -31,7 +31,7 @@ html,body{
   cursor: text;
 }
 .MuiListItem-root.Mui-selected {
-  background-color: #000000 !important;
+  background-color: #ffffff !important;
 }
 .no-note-selected {
   font-size: 48px;

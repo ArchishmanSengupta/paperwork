@@ -24,16 +24,16 @@ class App extends React.Component {
 
   render() {
     return(
-      <div classname="app__container">
-        <SidebarComponent>
-
+      <div className="app__container">
+        <SidebarComponent 
+          selectNoteIndex={this.state.selectNoteIndex}
+          notes={this.state.notes}
+          classes={this.state.classes}>
         </SidebarComponent>
+
         <EditorComponent>
     
         </EditorComponent>
-        {/* <SidebarComponent>
-
-        </SidebarComponent> */}
       </div>
     );
   }

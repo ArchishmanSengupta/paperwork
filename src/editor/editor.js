@@ -36,7 +36,7 @@ class EditorComponent extends React.Component {
         this.update();
     };
 
-    // 2. calling the helper function - helper.js
+    // 2. calling the debounce function - helper.js
 
     update=debounce(()=>{
         console.log('auto saving...');
