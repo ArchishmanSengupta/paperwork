@@ -6,7 +6,7 @@ html,body{
   padding: 0;
   overflow:hidden;
   color: rgb(0, 0, 0);
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Google Sans", Roboto, Arial, Helvetica, sans-serif;
 }
 #root{
   height:100%;

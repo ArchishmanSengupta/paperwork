@@ -10,7 +10,7 @@ class SidebarComponent extends React.Component {
     constructor() {
         super();
         this.state={
-            addNote: false,
+            newNote: false,
             title: null
         };
     }
@@ -19,16 +19,28 @@ class SidebarComponent extends React.Component {
         return (
         <div className={classes.sidebarContainer}> 
         <Button 
-            onClick={this.addNoteBtnClick}
-            className={classes.addNoteBtn}>
-                Add Note
+            onClick={this.newNoteBtnClick}
+            className={classes.newNoteBtn}>
+                + New Note
         </Button>
+        {
+            this.state.newNote ?
+            <div>
+                <input type='text' className={classes.newNoteInput}
+                placeholder='Untitled'
+                onKeyUp={((e)=> this.updateTitle(e.target.value))}>
+                    </input> </div>
+            :null
+        }
 
         </div>
         );
     }
-    addNoteBtnClick =() => {
-        console.log('new note add');
+    newNoteBtnClick =() => {
+        this.setState({title: null,newNote:!this.state.newNote});
+    }
+    updateTitle=(txt) => {
+        console.log('Your Text: ',txt);
     }
 }
 export default withStyles(styles)(SidebarComponent);

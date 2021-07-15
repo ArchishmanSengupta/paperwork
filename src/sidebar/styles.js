@@ -21,10 +21,10 @@
         height: '35px',
         borderBottom: '1px solid black',
         borderRadius: '0px',
-        backgroundColor: '#29487d',
+        backgroundColor: '#000',
         color: 'white',
         '&:hover': {
-            backgroundColor: '#88a2ce'
+            backgroundColor: 'green'
         }
         },
         sidebarContainer: {

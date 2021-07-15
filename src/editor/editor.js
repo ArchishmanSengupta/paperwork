@@ -20,7 +20,7 @@ class EditorComponent extends React.Component {
 
             //as we update the state it will update the ReactQuill
 
-            <div classname={classes.editorContainer}>
+            <div className={classes.editorContainer}>
             <ReactQuill
             value={this.state.text}
             onChange={this.updateBody}>          
