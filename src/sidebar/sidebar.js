@@ -4,6 +4,7 @@ import styles from './styles';
 import List from '@material-ui/core/List';
 import {Divider,Button} from '@material-ui/core';
 import SidebarItemComponent from '../sidebaritems/sidebaritems';
+import sidebaritems from '../sidebaritems/sidebaritems';
 
 
 class SidebarComponent extends React.Component {
@@ -38,6 +39,30 @@ class SidebarComponent extends React.Component {
             </div>
             :null
         }
+
+        {/* Takes all the notes from props and map those to actual elements */}
+
+        <List>
+            {
+                notes.map((_note, _index) => {
+                    return (
+                        <div key={_index}>
+                            <SidebarItemComponent
+                                _note={_note}
+                                _index={_index}
+                                selectNoteIndex={selectNoteIndex}
+                                selectNote={this.selectNote}
+                                deleteNote={this.deleteNote}>
+                            </SidebarItemComponent>
+                            <Divider>
+                                
+                            </Divider>
+                        </div>
+                    )
+                })
+        }
+        </List>
+        
         </div>
         );
     }
@@ -58,5 +83,9 @@ class SidebarComponent extends React.Component {
     newNote=()=>{
         console.log(this.state);
     }
+
+    // select and delete a particular node
+    selectNote=()=> console.log('select note');
+    deleteNote =()=> console.log('delete note');
 }
 export default withStyles(styles)(SidebarComponent);
