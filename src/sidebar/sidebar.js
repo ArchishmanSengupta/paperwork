@@ -10,7 +10,7 @@ class SidebarComponent extends React.Component {
     constructor() {
         super();
         this.state={
-            newNote: false,
+            addNote: false,
             title: null
         };
     }
@@ -21,18 +21,23 @@ class SidebarComponent extends React.Component {
         <Button 
             onClick={this.newNoteBtnClick}
             className={classes.newNoteBtn}>
-            {this.state.newNote ? 'Cancel' : '+ New Note'} 
+            {this.state.addNote ? 'Cancel' : '+ New Note'} 
         </Button>
         {
-            this.state.newNote ?
+            this.state.addNote ?
             <div>
                 <input type='text' className={classes.newNoteInput}
                 placeholder='Untitled'
                 onKeyUp={((e)=> this.updateTitle(e.target.value))}>
-                    </input> </div>
+                </input>
+                <Button 
+                className={classes.newNoteBtnClick}
+                onClick={this.newNote}>
+                    SUBMIT NOTE
+                </Button>
+            </div>
             :null
         }
-
         </div>
         );
     }
@@ -41,10 +46,17 @@ class SidebarComponent extends React.Component {
     // The title:null makes sure that it doesn't get updated to the title of new note.
 
     newNoteBtnClick =() => {
-        this.setState({title: null,newNote:!this.state.newNote}); 
+        this.setState({title: null,addNote:!this.state.addNote}); 
     }
+    // Simply updates the title
+
     updateTitle=(txt) => {
-        console.log('Your Text: ',txt);
+        this.setState({title: txt})
+    }
+
+    // Submit btn onClick save state
+    newNote=()=>{
+        console.log(this.state);
     }
 }
 export default withStyles(styles)(SidebarComponent);
