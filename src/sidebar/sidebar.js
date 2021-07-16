@@ -15,6 +15,23 @@ class SidebarComponent extends React.Component {
             title: null
         };
     }
+    /*
+    Explanation of the render function:
+
+    We check if the notes!=null then we execute the if statement,
+    otherwise if notes==null we return an empty div.
+    
+    Now in App.js , 
+    when it first renders the SidebarComponents
+    notes is going to be null as notes is null inside of the state by default.
+
+    Now when componentDidMount goes through & successfully retrieves the sidebar
+    and sets this.setState({notes :notes}), SidebarComponents is going to re-render
+    with notes not being null and then it will then comeback to render statement 
+    here (Sidebar.js)
+
+    */
+    
     render(){
         const { notes, classes, selectNoteIndex }=this.props;
         if(notes) {
@@ -68,12 +85,13 @@ class SidebarComponent extends React.Component {
                 );
         } else{
             return (
-                <div> Add a Node</div>
+                <div></div>
             );
         }
+        // End of HUGE-If statement and Explanation
     }
 
-    // If newNote is tru, change it to false i.e cancel & vice versa.
+    // If newNote is true, change it to false i.e cancel & vice versa.
     // The title:null makes sure that it doesn't get updated to the title of new note.
 
     newNoteBtnClick =() => {
