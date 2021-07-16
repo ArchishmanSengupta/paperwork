@@ -21,7 +21,7 @@ class SidebarComponent extends React.Component {
         <Button 
             onClick={this.newNoteBtnClick}
             className={classes.newNoteBtn}>
-                + New Note
+            {this.state.newNote ? 'Cancel' : '+ New Note'} 
         </Button>
         {
             this.state.newNote ?
@@ -36,8 +36,12 @@ class SidebarComponent extends React.Component {
         </div>
         );
     }
+
+    // If newNote is tru, change it to false i.e cancel & vice versa.
+    // The title:null makes sure that it doesn't get updated to the title of new note.
+
     newNoteBtnClick =() => {
-        this.setState({title: null,newNote:!this.state.newNote});
+        this.setState({title: null,newNote:!this.state.newNote}); 
     }
     updateTitle=(txt) => {
         console.log('Your Text: ',txt);
