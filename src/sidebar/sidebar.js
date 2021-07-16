@@ -17,54 +17,60 @@ class SidebarComponent extends React.Component {
     }
     render(){
         const { notes, classes, selectNoteIndex }=this.props;
-        return (
-        <div className={classes.sidebarContainer}> 
-        <Button 
-            onClick={this.newNoteBtnClick}
-            className={classes.newNoteBtn}>
-            {this.state.addNote ? 'Cancel' : '+ New Note'} 
-        </Button>
-        {
-            this.state.addNote ?
-            <div>
-                <input type='text' className={classes.newNoteInput}
-                placeholder='Untitled'
-                onKeyUp={((e)=> this.updateTitle(e.target.value))}>
-                </input>
+        if(notes) {
+            return (
+                <div className={classes.sidebarContainer}> 
                 <Button 
-                className={classes.newNoteBtnClick}
-                onClick={this.newNote}>
-                    SUBMIT NOTE
+                    onClick={this.newNoteBtnClick}
+                    className={classes.newNoteBtn}>
+                    {this.state.addNote ? 'Cancel' : '+ New Note'} 
                 </Button>
-            </div>
-            :null
-        }
-
-        {/* Takes all the notes from props and map those to actual elements */}
-
-        <List>
-            {
-                notes.map((_note, _index) => {
-                    return (
-                        <div key={_index}>
-                            <SidebarItemComponent
-                                _note={_note}
-                                _index={_index}
-                                selectNoteIndex={selectNoteIndex}
-                                selectNote={this.selectNote}
-                                deleteNote={this.deleteNote}>
-                            </SidebarItemComponent>
-                            <Divider>
-                                
-                            </Divider>
-                        </div>
-                    )
-                })
-        }
-        </List>
+                {
+                    this.state.addNote ?
+                    <div>
+                        <input type='text' className={classes.newNoteInput}
+                        placeholder='Untitled'
+                        onKeyUp={((e)=> this.updateTitle(e.target.value))}>
+                        </input>
+                        <Button 
+                        className={classes.newNoteBtnClick}
+                        onClick={this.newNote}>
+                            SUBMIT NOTE
+                        </Button>
+                    </div>
+                    :null
+                }
         
-        </div>
-        );
+                {/* Takes all the notes from props and map those to actual elements */}
+        
+                <List>
+                    {
+                        notes.map((_note, _index) => {
+                            return (
+                                <div key={_index}>
+                                    <SidebarItemComponent
+                                        _note={_note}
+                                        _index={_index}
+                                        selectNoteIndex={selectNoteIndex}
+                                        selectNote={this.selectNote}
+                                        deleteNote={this.deleteNote}>
+                                    </SidebarItemComponent>
+                                    <Divider>
+                                        
+                                    </Divider>
+                                </div>
+                            )
+                        })
+                }
+                </List>
+                
+                </div>
+                );
+        } else{
+            return (
+                <div> Add a Node</div>
+            );
+        }
     }
 
     // If newNote is tru, change it to false i.e cancel & vice versa.
