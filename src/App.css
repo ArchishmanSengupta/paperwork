@@ -5,9 +5,12 @@ html,body{
   background-color:#F3F3F3F3;
   margin: 0;
   padding: 0;
+  margin-left: 10px;
+  margin-top: 10px;
   overflow:hidden;
   color: rgb(0, 0, 0);
   font-family: "Google Sans", Roboto, Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 #root{
   height:100%;
@@ -30,7 +33,19 @@ html,body{
 }
 .ql-editor {
   cursor: text;
+  width: 8.5in;
+  min-height: 11in;
+  padding: 1in;
+  margin: 1rem;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  overflow-y: scroll;
 }
+.ql-container.ql-snow{
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
 .MuiListItem-root.Mui-selected {
   background-color: #ffffff !important;
 }
