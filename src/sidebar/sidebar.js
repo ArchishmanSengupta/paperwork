@@ -3,8 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import List from '@material-ui/core/List';
 import {Divider,Button} from '@material-ui/core';
-import SidebarItemComponent from '../sidebaritems/sidebaritems';
-import sidebaritems from '../sidebaritems/sidebaritems';
+import SidebarItemComponent from '../sidebaritems/sidebarItems';
 
 
 class SidebarComponent extends React.Component {
@@ -33,7 +32,7 @@ class SidebarComponent extends React.Component {
     */
     
     render(){
-        const { notes, classes, selectNoteIndex }=this.props;
+        const { notes, classes, selectedNoteIndex }=this.props;
         if(notes) {
             return (
                 <div className={classes.sidebarContainer}> 
@@ -45,12 +44,14 @@ class SidebarComponent extends React.Component {
                 {
                     this.state.addNote ?
                     <div>
-                        <input type='text' className={classes.newNoteInput}
+                        <input 
+                        type='text' 
+                        className={classes.newNoteInput}
                         placeholder='Untitled'
-                        onKeyUp={((e)=> this.updateTitle(e.target.value))}>
+                        onKeyUp={(e)=> this.updateTitle(e.target.value)}>
                         </input>
                         <Button 
-                        className={classes.newNoteBtnClick}
+                        className={classes.newNoteSubmitBtn}
                         onClick={this.newNote}>
                             SUBMIT NOTE
                         </Button>
@@ -68,7 +69,7 @@ class SidebarComponent extends React.Component {
                                     <SidebarItemComponent
                                         _note={_note}
                                         _index={_index}
-                                        selectNoteIndex={selectNoteIndex}
+                                        selectedNoteIndex={selectedNoteIndex}
                                         selectNote={this.selectNote}
                                         deleteNote={this.deleteNote}>
                                     </SidebarItemComponent>
@@ -109,7 +110,7 @@ class SidebarComponent extends React.Component {
     }
 
     // select and delete a particular node
-    selectNote=()=> console.log('select note');
+    selectNote=(n,i)=> this.props.selectNote(n,i);
     deleteNote =()=> console.log('delete note');
 }
 export default withStyles(styles)(SidebarComponent);

@@ -6,7 +6,8 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import SidebarComponent from './sidebar/sidebar';
 import EditorComponent from './editor/editor';
-import SidebarItemComponent from './sidebaritems/sidebaritems';
+import 'react-quill/dist/quill.snow.css';
+
 
 //const firebase = require('firebase');
 require("firebase/firestore");
@@ -16,8 +17,8 @@ class App extends React.Component {
     // This is required when you need to access some variables from the parent class.
     super(); 
     this.state={
-      selectNoteIndex:null,
-      selectedNode:null,
+      selectedNoteIndex:null,
+      selectedNote:null,
       notes:null,
     }
   }
@@ -26,9 +27,12 @@ class App extends React.Component {
     return(
       <div className="app__container">
         <SidebarComponent 
-          selectNoteIndex={this.state.selectNoteIndex}
+          selectedNoteIndex={this.state.selectedNoteIndex}
           notes={this.state.notes}
-          classes={this.state.classes}>
+          classes={this.state.classes}
+          deleteNote={this.deleteNote}
+          selectNote={this.selectNote}
+          newNote={this.newNote}>
         </SidebarComponent>
 
         <EditorComponent>
@@ -57,6 +61,8 @@ class App extends React.Component {
       this.setState({notes:notes});          // mapping notes state with const notes line 36
     });
   }
+
+  selectNote=(note,index) => this.setState({selectedNoteIndex:index, selectedNote: note});
 }
 
 export default App;
