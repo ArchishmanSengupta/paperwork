@@ -61,11 +61,10 @@ class EditorComponent extends React.Component {
     // 2. calling the debounce function - helper.js
 
     update=debounce(()=>{
-        console.log('auto saving...');
-
-        // TODO: 
-
+        this.props.noteUpdate(this.state.id,{
+            title: this.state.title,
+            body: this.state.text,
+        })
     },2000);
-
 }
 export default withStyles(styles)(EditorComponent);     // takes agrs styles, Styles is a function in which we will be using in the styles.js file
