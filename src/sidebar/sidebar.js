@@ -106,7 +106,10 @@ class SidebarComponent extends React.Component {
 
     // Submit btn onClick save state
     newNote=()=>{
-        console.log(this.state);
+      this.props.newNote(this.state.title);
+      this.setState({
+         title: null,addNote: false
+      });
     }
 
     // select and delete a particular node
