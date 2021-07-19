@@ -69,7 +69,15 @@ class App extends React.Component {
 
   selectNote=(note,index) => this.setState({selectedNoteIndex:index, selectedNote: note});
   noteUpdate=(id,noteObj)=> {
-    console.log(id,noteObj);
+    firebase
+      .firestore()
+      .collection('notes')
+      .doc(id)
+      .update({
+        title: noteObj.title,
+        body: noteObj.body,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
   }
 }
 
