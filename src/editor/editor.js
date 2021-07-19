@@ -14,6 +14,8 @@ class EditorComponent extends React.Component {
             id:''
         };
     }
+    // Lifecycle event
+
     // first mount sets the state of the note when the note is selected
     componentDidMount=()=> {
         this.setState({
@@ -21,6 +23,17 @@ class EditorComponent extends React.Component {
             title: this.props.selectedNote.title,
             id: this.props.selectedNote.id,
         });
+    }
+
+    // this functions when the component is updated
+    componentDidUpdate=()=>{
+        if(this.props.selectedNote.id != this.state.id){ // if the id of the note is different to what it is displaying then {}
+            this.setState({
+                text: this.props.selectedNote.body,
+                title: this.props.selectedNote.title,
+                id: this.props.selectedNote.id,
+            });
+        }
     }
 
     render(){
