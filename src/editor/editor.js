@@ -14,6 +14,15 @@ class EditorComponent extends React.Component {
             id:''
         };
     }
+    // first mount sets the state of the note when the note is selected
+    componentDidMount=()=> {
+        this.setState({
+            text: this.props.selectedNote.body,
+            title: this.props.selectedNote.title,
+            id: this.props.selectedNote.id,
+        });
+    }
+
     render(){
         const {classes} =this.props;
         return ( 
