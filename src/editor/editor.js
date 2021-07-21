@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import debounce from '../helper'
-import BorderColoration from '@material-ui/icons/BorderColor';
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
@@ -43,6 +43,13 @@ class EditorComponent extends React.Component {
             //as we update the state it will update the ReactQuill
 
             <div className={classes.editorContainer}>
+                <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
+                    <input className={classes.titleInput}
+                    placeholder='Untitled'
+                    value={this.state.title ? this.state.title: ''}
+                    onChange={(e)=>this.updateTitle(e.target.value)}>
+                    </input>
+
             <ReactQuill
             value={this.state.text}
             onChange={this.updateBody}>          
@@ -58,7 +65,14 @@ class EditorComponent extends React.Component {
         this.update();
     };
 
-    // 2. calling the debounce function - helper.js
+    // 2. Updates the title
+
+    updateTitle=async(val) => {
+        await this.setState({title:val});
+        this.update();
+    }
+
+    // 3. calling the debounce function - helper.js
 
     update=debounce(()=>{
         this.props.noteUpdate(this.state.id,{
