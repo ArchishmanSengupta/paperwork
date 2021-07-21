@@ -6,6 +6,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Paperwork: Online Text Editor
+![readme1](https://user-images.githubusercontent.com/71402528/126516449-ca83daa9-2a0c-4313-b7b8-5d1f5f2e63c6.png)
+
 # Dependencies
 - material-ui/core  (npm install @material-ui/core)
 - material-ui/icons (npm install @material-ui/icons)
