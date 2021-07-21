@@ -34,7 +34,8 @@
         boxSizing: 'border-box',
         float: 'left',
         overflowY: 'scroll',
-        overflowX: 'hidden'
+        overflowX: 'hidden',
+        cursor: 'pointer'
         },
         newNoteInput: {
         width: '100%',

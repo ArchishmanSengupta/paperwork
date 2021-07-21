@@ -80,7 +80,9 @@ class App extends React.Component {
       });
   }
 
-    // Creating new note and updating with firebase
+    // CREATE NEWNOTE
+
+    // updating with firebase
     // newNote accepts title and body will be null
   newNote= async(title) => {
     const note={
@@ -88,9 +90,13 @@ class App extends React.Component {
       body: ''
     };
 
-    // await a firebase call
-    // we are creating this in firebase and we are waiting for it to respond
-    // from the server and whatever the response is we are saving it to "newFromDB"
+    /* 
+    
+      await a firebase call
+      we are creating this in firebase and we are waiting for it to respond
+      from the server and whatever the response is we are saving it to "newFromDB"
+    
+      */
     
     const newFromDB= await firebase
     .firestore()
@@ -122,6 +128,52 @@ class App extends React.Component {
       selectedNote: this.state.notes[newNoteIndex],selectedNoteIndex: newNoteIndex
     });
   }
+
+
+
+  // DELETE NOTE FUNCTION
+
+  /*
+
+  When we delete the note, we are deselecting the note in state
+  For example:
+  If we have 3 notes, we want to delete the 1st note while the 3rd note is selected,
+  and while doing so the 3rd note has 3rd index but after we delete the 1st note the 
+  3rd index doesn't exist. Thus "[this.state.selectedNoteIndex -1]" in the else part.
+
+  */
+
+  deleteNote = async (note) =>{
+    const noteIndex = this.state.notes.indexOf(note);
+
+    await this.setState({notes:this.state.notes.filter(_note=> _note!==note)})
+    
+    if(this.state.selectedNoteIndex===noteIndex){
+      this.setState({
+        selectedNoteIndex: null,
+        selectedNote: null});
+      } 
+      else {
+        this.state.notes.length > 1 ?
+        this.selectNote(
+          this.state.notes[this.state.selectedNoteIndex -1], //Current Note -1
+          this.state.selectedNoteIndex-1)
+        : this.setState(                                     //we have no more notes as length <=1
+          {
+            selectedNoteIndex: null,
+            selectedNote: null
+          }
+          );
+      }
+
+      //DELETION UPDATE IN FIREBASE
+      
+      firebase
+      .firestore()
+      .collection('notes')
+      .doc(note.id)
+      .delete();
+    }
 }
 
 export default App;

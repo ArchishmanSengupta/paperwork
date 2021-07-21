@@ -114,6 +114,6 @@ class SidebarComponent extends React.Component {
 
     // select and delete a particular node
     selectNote=(n,i)=> this.props.selectNote(n,i);
-    deleteNote =()=> console.log('delete note');
+    deleteNote =(note)=>this.props.deleteNote(note);
 }
 export default withStyles(styles)(SidebarComponent);
