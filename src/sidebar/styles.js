@@ -40,7 +40,7 @@
         newNoteInput: {
         width: '100%',
         margin: '0px',
-        height: '35px',
+        height: '70px',
         outline: 'none',
         border: 'none',
         paddingLeft: '5px',
@@ -50,9 +50,12 @@
         },
         newNoteSubmitBtn: {
         width: '100%',
-        backgroundColor: '#28787c',
+        backgroundColor: '#00A82D',
         borderRadius: '0px',
-        color: 'white'
+        color: 'black',
+        '&:hover': {
+            backgroundColor: 'lightgreen'
+        }
         }
     });
     
