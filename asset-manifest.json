@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/paperwork/static/css/main.acbe0d74.chunk.css",
+    "main.js": "/paperwork/static/js/main.7f64331c.chunk.js",
+    "main.js.map": "/paperwork/static/js/main.7f64331c.chunk.js.map",
+    "runtime-main.js": "/paperwork/static/js/runtime-main.edb71915.js",
+    "runtime-main.js.map": "/paperwork/static/js/runtime-main.edb71915.js.map",
+    "static/css/2.f83b9687.chunk.css": "/paperwork/static/css/2.f83b9687.chunk.css",
+    "static/js/2.c40f9ce7.chunk.js": "/paperwork/static/js/2.c40f9ce7.chunk.js",
+    "static/js/2.c40f9ce7.chunk.js.map": "/paperwork/static/js/2.c40f9ce7.chunk.js.map",
+    "static/js/3.f984e348.chunk.js": "/paperwork/static/js/3.f984e348.chunk.js",
+    "static/js/3.f984e348.chunk.js.map": "/paperwork/static/js/3.f984e348.chunk.js.map",
+    "index.html": "/paperwork/index.html",
+    "static/css/2.f83b9687.chunk.css.map": "/paperwork/static/css/2.f83b9687.chunk.css.map",
+    "static/css/main.acbe0d74.chunk.css.map": "/paperwork/static/css/main.acbe0d74.chunk.css.map",
+    "static/js/2.c40f9ce7.chunk.js.LICENSE.txt": "/paperwork/static/js/2.c40f9ce7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.edb71915.js",
+    "static/css/2.f83b9687.chunk.css",
+    "static/js/2.c40f9ce7.chunk.js",
+    "static/css/main.acbe0d74.chunk.css",
+    "static/js/main.7f64331c.chunk.js"
+  ]
+}
